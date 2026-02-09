@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>待办事项</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+<h1>待办事项</h1>
+
+<div id="count"></div>
+
+<div class="filters">
+    <button onclick="setFilter('all')">全部</button>
+    <button onclick="setFilter('todo')">未完成</button>
+    <button onclick="setFilter('done')">已完成</button>
+</div>
+
+<div class="inputRow">
+    <input id="taskInput" placeholder="输入待办">
+    
+    <select id="priority">
+        <option value="low">低</option>
+        <option value="mid">中</option>
+        <option value="high">高</option>
+    </select>
+
+    <input type="date" id="due">
+
+    <button onclick="addTask()">添加</button>
+</div>
+
+<ul id="taskList"></ul>
+
+<script src="script.js"></script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+
+</body>
+</html>
